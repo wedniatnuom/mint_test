@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mint', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://mintusername:mintpassword@Cluster0.n9z04.mongodb.net/sample_mflix?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
