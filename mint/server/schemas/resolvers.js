@@ -1,10 +1,4 @@
-const { 
-  Listing, 
-  User, 
-  Order, 
-  // Antique, 
-  // ComicBook 
-} = require('../models');
+const { Listing, User, Order } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -54,45 +48,7 @@ const resolvers = {
       }
 
       return await Listing.find().populate('category');
-    },
-    // antiques: async (parent, { _id }) => {
-    //   const params = _id ? { _id } : {};
-    //   return Antique.find(params);
-    // },
-    // antiques: async (parent, { category, name }) => {
-    //   const params = {};
-
-    //   if (category) {
-    //     params.category = category;
-    //   }
-
-    //   if (name) {
-    //     params.name = {
-    //       $regex: name
-    //     };
-    //   }
-
-    //   return await Antique.find().populate('category');
-    // },
-    // comicbooks: async (parent, { _id }) => {
-    //   const params = _id ? { _id } : {};
-    //   return ComicBook.find(params);
-    // },
-    // comicbooks: async (parent, { category, name }) => {
-    //   const params = {};
-
-    //   if (category) {
-    //     params.category = category;
-    //   }
-
-    //   if (name) {
-    //     params.name = {
-    //       $regex: name
-    //     };
-    //   }
-
-    //   return await ComicBook.find().populate('category');
-    // }
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -112,17 +68,17 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect Email and/or Password');
+        throw new AuthenticationError('Incorrect Username and/or Password');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect Email and/or Password');
+        throw new AuthenticationError('Incorrect Username and/or Password');
       }
 
       const token = signToken(user);

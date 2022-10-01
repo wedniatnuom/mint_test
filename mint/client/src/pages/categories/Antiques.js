@@ -1,8 +1,15 @@
 import React from "react"
 import { useQuery } from "@apollo/client";
 import { QUERY_LISTINGS } from "../../utils/queries";
+import { useParams } from 'react-router-dom';
 import SingleAntique from '../../components/ListingCards/singleAntique';
 
+
+// import Container from "react-bootstrap/Container";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
+// import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
 
 export default function Antiques() {
     const { loading, data } = useQuery(QUERY_LISTINGS)
@@ -13,7 +20,7 @@ export default function Antiques() {
     
     if (loading) {
       return (<div>Loading...</div>)
-    } else 
+    } 
     return(
         <div>
           {antiques &&
@@ -22,6 +29,5 @@ export default function Antiques() {
             ))}
         </div>
       );
-    
    
   }; 

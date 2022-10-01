@@ -15,7 +15,6 @@ import MyListings from "./pages/MyListings";
 import Login from "./pages/LoginSignup";
 import Footer from "./components/Footer";
 import WishList from './pages/WishList';
-// import ViewListing from './pages'
 // import Cart from './pages/Cart';
 // import CreateListing from './pages/CreateListing'
 
@@ -103,10 +102,6 @@ function App() {
             path="/mylisting"
             element={<MyListings/> }
             />
-            {/* <Route 
-            path ="/viewlisting"
-            element={<ViewListing/>}
-            /> */}
             
             {/* <Route 
             path="/cart"

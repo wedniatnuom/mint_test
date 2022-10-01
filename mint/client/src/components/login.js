@@ -36,7 +36,7 @@ function Login(props) {
           style={{ backgroundColor: "lightgreen" }}>
           Login
         </div>
-        <form onSubmit={submit} className="w-75">
+        <div className="w-75">
           <div className="m-3">
             <input className="w-100" id="email" type="email" name="email" placeholder="Email" onChange={handleChange}></input>
           </div>
@@ -44,14 +44,14 @@ function Login(props) {
             <input className="w-100" id="password" type="password" name="password" placeholder="Password" onChange={handleChange}></input>
           </div>
           <div className="m-3">
-            <button className="w-100" type="submit">Sign In</button>
+            <button className="w-100" onClick={submit}>Sign In</button>
           </div>
           {error ? (
             <div>
               <p className="error-text">The provided credentials are incorrect</p>
             </div>
           ) : null}
-        </form>
+        </div>
         <div>
           <div className="text-center font-weight-light">Don't have an account?</div>
           <p className="text-center" onClick={() => props.setPage("signUp")}>Sign Up</p>

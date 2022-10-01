@@ -47,9 +47,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addOrder(listings: [ID]!): Order
-    updateUser(email: String, password: String): User
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateListing(_id: ID!, quantity: Int!): Listing
     login(email: String!, password: String!): Auth
   }
@@ -57,25 +57,3 @@ const typeDefs = gql`
 
 module.exports = typeDefs;
 
-// antique(_id: ID!): Antiques
-    // antiques(category: ID, name: String): [Antiques]
-    // comicbook(_id: ID!): Antiques
-    // comicbooks(category: ID, name: String): [ComicBooks]
-
- // type Antiques {
-  //   _id: ID!
-  //   title: String!
-  //   image: String!
-  //   price: Float!
-  //   description: String!
-  //   category: Category!
-  // }
-
-  // type ComicBooks {
-  //   _id: ID!
-  //   title: String!
-  //   image: String!
-  //   price: Float!
-  //   description: String!
-  //   category: Category!
-  // }

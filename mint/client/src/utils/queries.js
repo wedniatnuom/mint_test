@@ -1,41 +1,8 @@
 import { gql } from '@apollo/client';
 
-// export const QUERY_ANTIQUES = gql`
-//   query getAntiques {
-//      antiques {
-//       _id
-//       title
-//       image
-//       price
-//       description
-//       category {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
-
-// export const QUERY_COMICBOOKS = gql`
-//   query getComicBooks {
-//      comicbooks {
-//       _id
-//       title
-//       image
-//       price
-//       description
-//       category {
-//         _id
-//         name
-//       }
-//     }
-//   }
-// `;
-
-
 export const QUERY_LISTINGS = gql`
-  query getListings($category: ID) {
-    listings(category: $category) {
+  query getListings {
+     listings {
       _id
       title
       image
@@ -47,7 +14,7 @@ export const QUERY_LISTINGS = gql`
       }
     }
   }
-`
+`;
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($listings: [ID]!) {

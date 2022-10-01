@@ -1,4 +1,4 @@
-import {useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 // import View from '@apollo/client'
 import { Link, useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
@@ -21,7 +21,7 @@ import spinner from '../assets/loading.webp'
 
 
 
-function ViewListing() {
+function viewListing() {
     const [state, dispatch] = useStoreContext()
     const { id } = useParams()
 
@@ -120,15 +120,15 @@ function ViewListing() {
     const removeFromCart = () => {
         dispatch({
             type: REMOVE_FROM_CART,
-            _id: currentListing._id,
+            _id: currentProduct._id,
         });
 
-        idbPromise('cart', 'delete', { ...currentListing });
+        idbPromise('cart', 'delete', { ...currentProduct });
     };
 
     return (
         <>
-        {currentListing && cart ? (
+        {currentProduct && cart ? (
         <div className='container my-1'>
             <Link to="/">← Back to Listings</Link>
             <div className='card'>
@@ -137,9 +137,8 @@ function ViewListing() {
                 </div>
                 
                 <div className='photo'>
-                    <BigImage
-                        url={currentListing.image}
-                        >
+                    <BigImage>
+                        {DisplayBigImage('')}
                     </BigImage>
                 </div>
             </div>
@@ -169,4 +168,4 @@ function ViewListing() {
     )
 }
 
-export default ViewListing
+export default viewListing
