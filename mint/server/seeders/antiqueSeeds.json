@@ -1,0 +1,15 @@
+[
+    {
+        "title": "1910 Wall Clock",
+        "image": "/images/clock.jpeg",
+        "price": 149.99,
+        "description": "Grandfather clock"
+       
+    },
+    {
+        "title": "Early 1900's Sterling Silver Silverware Set",
+        "image": "/images/silverware.jpeg",
+        "price": "79.99",
+        "description":"Stunning silverware set that is 100% sterling silver."
+    }   
+]
